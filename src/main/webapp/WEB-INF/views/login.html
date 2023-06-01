@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+    <form  th:action="@{/session/doLogin}" th:object="${user}" method="post">
+        <h1>Login</h1>
+        <input type="text" placeholder="username" name="username" th:field="*{username}"/>
+        <span style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+
+        <input type="password" placeholder="password" name="password" th:field="*{password}"/>
+        <span style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+
+        <button type="submit">Login</button>
+    </form>
+    <span th:text="${message}"></span>
+    <h2>
+       tk : ThangNp , Mk : 11111
+    </h2>
+
+</body>
+</html>
